@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Library</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="source.css">
+</head>
+<body>
+    <nav class="site-nav" aria-label="Main menu">
+        <a class="brand" href="index.html">STUDY DECK</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="source.html" aria-current="page">Content</a></li>
+            <li><a href="flash.html">Flashcard</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header class="intro">
+            <h1>Your content library</h1>
+            <p>Upload study material to extract its text and create a set of review cards for each document.</p>
+        </header>
+        <form class="upload" id="upload-form">
+            <label for="document-name">Document name
+                <input id="document-name" name="name" type="text" required maxlength="100" placeholder="e.g. Algebra: linear equations">
+            </label>
+            <label for="document-category">Category
+                <input id="document-category" name="category" type="text" list="category-options" required maxlength="60" placeholder="Type a category or choose one">
+                <datalist id="category-options"></datalist>
+            </label>
+            <label class="file-field" for="document-file">Document
+                <input id="document-file" name="document" type="file" accept=".txt,.pdf,.docx" required>
+                <span class="hint">Supported formats: TXT, PDF, DOCX. Scanned PDFs need selectable text.</span>
+            </label>
+            <div class="actions"><button id="upload-button" type="submit">Upload and generate cards</button></div>
+            <p id="status" role="status" aria-live="polite"></p>
+        </form>
+        <section aria-labelledby="library-title">
+            <div class="library-heading">
+                <h2 id="library-title">Saved documents</h2>
+                <a href="flash.html">Open flashcards</a>
+            </div>
+            <div id="document-list"></div>
+        </section>
+    </main>
+        <script src="vendor/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+    <script type="module" src="source.js"></script>
+</body>
+</html>

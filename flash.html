@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="flash.css">
+</head>
+<body>
+    <nav class="site-nav" aria-label="Main menu">
+        <a class="brand" href="index.html">STUDY DECK</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="source.html">Content</a></li>
+            <li><a href="flash.html" aria-current="page">Flashcard</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header class="intro">
+            <h1>Review your cards</h1>
+            <p>Choose a category and document, then reveal each answer as you study.</p>
+        </header>
+        <div id="empty-state" hidden>
+            <p class="muted">There are no flashcards yet.</p>
+            <a href="source.html">Add a document to your library</a>
+        </div>
+        <section id="study-area" hidden aria-label="Flashcard review">
+            <div class="filters">
+                <label for="category-select">Category
+                    <select id="category-select"></select>
+                </label>
+                <label for="document-select">Document
+                    <select id="document-select"></select>
+                </label>
+            </div>
+            <article class="card" aria-live="polite">
+                <p class="card-label" id="card-label">Question</p>
+                <p id="card-text"></p>
+                <div class="card-footer"><span id="concept-label"></span><span id="card-count"></span></div>
+            </article>
+            <div class="controls">
+                <button class="secondary" id="reveal-button" type="button">Reveal answer</button>
+                <div class="control-group">
+                    <button class="secondary" id="previous-button" type="button">Previous</button>
+                    <button id="next-button" type="button">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="flash.js"></script>
+</body>
+</html>
